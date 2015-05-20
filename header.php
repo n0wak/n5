@@ -41,5 +41,5 @@ if ($_SERVER["HTTP_HOST"]== "mikenowak.ca") {
 </head>		
 <body <?php body_class(); ?> role="main">
     <header id="top-header" class="full-header <?php echo getHeaderClass(); ?>" role="banner">
-        <h1><a href="/">the-inbetween.com</a> is a <em>weblog</em>. It has been since 2000.</h1>
+        <h1><!-- ><a href="/">the-inbetween.com</a> is a <em>weblog</em>. It has been since 2000.--> Placeholder text. Longer placeholder text <a href="#">with link</a>.</h1>
     </header>

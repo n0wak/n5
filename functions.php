@@ -104,7 +104,7 @@ add_filter('the_content', 'pre_process_shortcode', 7);
 function n5_post_time() {
 ?>
 <time datetime="<?php echo get_the_time('Y-m-d'); ?>">
-    <a href="<?php echo get_month_link( get_the_time("Y"), get_the_time("m") ); ?>"><?php echo get_the_time('F'); ?></a> <?php echo get_the_time('jS'); ?>, <a href="<?php echo get_year_link( get_the_time("Y") ); ?>"><?php echo get_the_time('Y'); ?></a>. </time> <?php
+    <a href="<?php echo get_month_link( get_the_time("Y"), get_the_time("m") ); ?>"><?php echo get_the_time('F jS,'); ?></a> <a href="<?php echo get_year_link( get_the_time("Y") ); ?>"><?php echo get_the_time('Y.'); ?></a></time> <?php
 }
 
 

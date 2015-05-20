@@ -29,15 +29,15 @@ WebFontConfig = {
     families: ['Gentium+Basic:400,700,400italic', 'Comfortaa:700']
   },
   loading : function() {
-    console.log ("wfc loading");
+    //console.log ("wfc loading");
   },
   active : function() {	  
-      console.log ("wfc active");
+      //console.log ("wfc active");
   	inbetween.sizeText();
   	
   },
   inactive: function() {
-      console.log ("wfc inactive");
+      //console.log ("wfc inactive");
   	inbetween.sizeText();
   }
 
@@ -277,14 +277,17 @@ contentLoaded(window, function() {
 
 
 var clientWidth = verge.viewportW();
-    
+var clientHeight = verge.viewportH();
 // Just in case
 window.onresize = debounce(function() {
-	// All the taxing stuff you do
-console.log ("onresize");
     var w = verge.viewportW();
-    if (w != clientWidth) { // Only if width changes. If height changes it's possible it's because of andoid ui hiding.
+    var h = verge.viewportH();
+    if (w != clientWidth || Math.abs(h - clientHeight) > 25) { // Only if width changes. If height changes it's possible it's because of andoid ui hiding.
+        
+
+        console.log ("onresize " + Math.abs(h - clientHeight));
         clientWidth = w;
+        clientHeight = h;
         inbetween.sizeText();
     }
 }, 300);
