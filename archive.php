@@ -1,5 +1,7 @@
 <?php get_header(); ?>
-			
+
+<main class="index" role="main">
+		
 			<section class="entries" id="content">
 			
 			
@@ -29,34 +31,13 @@
 				    </h1>
 				<?php } ?>
 			
-						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php if (have_posts()) : while (have_posts()) : the_post();
 						
-						<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-							<header>								
-								<div class="date"><span><?php the_time('F jS, Y'); ?></span></div>								
-								<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>								
-							</header> <!-- end article header -->
 						
-							<section class="post_content">							
-								<?php the_excerpt(); ?>						
-							</section> <!-- end article section -->
-							
-							<footer>		
-								<div class="break"></div>			
-								&#x2388; <a href="<?php the_permalink() ?>" class="post-title" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a> was categorized as  
-								<?php the_category(' &nbsp;'); ?>.<br />
-								&nbsp;&#x25BB; It was published on <?php the_time('l '); ?>
-
-								<a href="<?php echo get_month_link( get_the_time('Y'), get_the_time('m') ); ?>"><?php the_time('F'); ?>
-		</a>
-								<?php the_time('jS, '); ?>
-
-								<a href="<?php echo get_year_link( get_the_time('Y')); ?>"><?php the_time('Y'); ?></a>							
-								.							
-							</footer> <!-- end article footer --> <!-- end article footer -->
-						
-						</article> <!-- end article -->
-						
+                            get_template_part( 'excerpt-template/post', get_post_format() );
+		?>
+		
+		
 						<?php endwhile; ?>	
 						
 
@@ -84,5 +65,6 @@
 									
     
 			</div> <!-- end #content -->
+</main>
 
 <?php get_footer(); ?>

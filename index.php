@@ -25,8 +25,8 @@ if ( have_posts() ) {
 		<nav class="navigation pagination" role="navigation">																
 			<div class="navigation-newer"><?php previous_posts_link('&laquo; Newer Page (' . (get_query_var( 'paged' ) ? get_query_var( 'paged' )-1 : 1) .')', 0) ?>&nbsp;</div>			
 			<div class="navigation-current">
-			    <div>This is <a href="/" title="the-inbetween.com">the-inbetween.com</a> </div>
-			    <?php current_paged() ?>
+			    <div>This is <?php current_paged() ?> of <a href="/" title="the-inbetween.com">the-inbetween.com</a>  </div>
+			    
 			 </div>
 		    <div class="navigation-older"><?php next_posts_link('Older Page ('. (get_query_var( 'paged' ) ? get_query_var( 'paged' )+1 : 1) . ') &raquo;', 0) ?>&nbsp;</div>								
         </nav>

@@ -127,7 +127,7 @@ function current_paged( $var = '' ) {
     if( $pages < 1 )
         return;
     $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-    echo 'This is page ' . $page . '.<!-- of ' . $pages.'-->';
+    echo 'page ' . $page . '<!-- of ' . $pages.'-->';
 }
 
 
