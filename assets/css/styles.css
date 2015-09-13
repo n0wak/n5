@@ -15,7 +15,7 @@ table{border-collapse:collapse;border-spacing:0}
 hr{display:block;height:1px;border:0;padding:0}
 input,select{vertical-align:middle}
 
- 
+
 html {
   box-sizing: border-box;
 }
@@ -28,20 +28,36 @@ html, body {
     font-family: Georgia, serif;
     font-weight : 400;
 	height : 100%;
-    font-size : 1.15em;
-    line-height : 1.45;
+    font-size : 1.2em;
+    line-height : 1.5;
   
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    /*-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;*/
+    
+    transition : opacity 0.8s;
+    transition-timing-function:  : ease-in-out;
+    animation: fadein 0.8s;
+    
+    animation-timing-function: ease-in-out;
 }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
 
 html.wf-loading, .wf-loading body {
     color : #666;
+    opacity : 0;
+    animation: none;
 }
 html.wf-active, .wf-active body {
-    font-size : 1.2em;
-    line-height : 1.45;
-    color : #393939;
+    font-size : 1.25em;
+    line-height : 1.5;
+    color :  #3F3F3F;
+    opacity : 1;
     font-family: 'Gentium Basic', Georgia, serif;
 }
 html.wf-active header.full-header h1 {
@@ -216,6 +232,7 @@ main.index {
 
 main.post {
     padding : 1.5rem 8rem 0rem 8rem;
+    text-rendering:optimizeLegibility;
 }
 
 
@@ -302,8 +319,6 @@ rh2 a:hover:before, rh3 a:hover:before {
     font-size : 2.25em;
 }
 
-
-
 article p, article iframe, article div, article figure, article ul, article ol {
     margin : 1.75rem auto 0 auto;
 }
@@ -316,23 +331,24 @@ article li {
 }
 
 a, section a, footer a {
-    /*border-bottom : 1px solid #F1E9C8;*/
     
     transition: color 0.35s ease-in-out, background-size 0.5s ease-in-out;    
     -webkit-transition: color 0.35s ease-in-out, background-size 0.5s ease-in-out;
     -moz-transition: color 0.35s ease-in-out, background-size 0.5s ease-in-out;
     
     text-decoration: none;
-    background-image: -moz-linear-gradient(to bottom, #FFF 0%, #DF3054 100%);
-    background-image: linear-gradient(to bottom, #FFF 0%, #DF3054 100%);
+    background-image: -moz-linear-gradient(to bottom, #FFF 25%, #DF3054 100%);
+    background-image: linear-gradient(to bottom, #FFF 25%, #DF3054 100%);
     
     background-repeat: no-repeat;
-    background-size: 0 2px;
+    background-size: 0% 2px;
     background-position: center 1em;
     border : none;
     
     position : relative;
+    
 }
+
 /*
 article p a:before {
     position : absolute;
@@ -352,6 +368,7 @@ article p a:hover:before {
 a:hover, section a:hover, footer a:hover {
     /*background-color : #F9548B;*/
     color : #DF3054;
+    border : none;
     background-size: 100% 2px;
     /*border-bottom : 1px solid #DF3054;*/
     background-image: -moz-linear-gradient(to bottom, #FFF 0%, #DF3054 100%, #FFF);
@@ -426,7 +443,6 @@ figure figcaption, .imageCaption span, .imageThumbs span {
 article footer {
     text-align : center;
     font-size : 0.85rem;
-    margin-top : 1em;
 }
 /*article footer a, .comment a {
     border : none;
@@ -523,7 +539,6 @@ div.divider, div.break, hr {
     border : none;
     border-top: 1px dotted #DF3054; 
     width: 30%; 
-    height : 0.5rem;
     line-height: 0.5rem; 
     color: #999; 
     text-align: center; 

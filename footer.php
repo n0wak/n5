@@ -26,7 +26,7 @@
 <script>
 WebFontConfig = {
   google: {
-    families: ['Gentium+Basic:400,700,400italic', 'Comfortaa:700']
+    families: ['Gentium+Basic:400,400italic', 'Comfortaa:700'] // 700
   },
   loading : function() {
     //console.log ("wfc loading");
@@ -256,7 +256,7 @@ window.onload = function() {
    // window.scrollTo(0, 0);
     
     if (window.scrollY == 0 && document.body.classList.contains("single-post")) {
-  	  justScroll.to((parseInt(document.getElementById("top-header").offsetHeight, 10)) , 0.8 );
+  	  justScroll.to((parseInt(document.getElementById("top-header").offsetHeight, 10) - 6) , 0.6 );
     }
 }
     
