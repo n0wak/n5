@@ -63,7 +63,16 @@ function getHeaderClass() {
 		return "post-header ";
 	}	
 }
-
+function echoIfIndex($string) {
+    if (is_home()) {
+        echo $string;
+    }
+}
+function echoIfNotIndex($string) {
+    if (!is_home()) {
+        echo $string;
+    }
+}
 
 function is_excerpt_full($excerpt, $content) {
 	return str_word_count($excerpt) >= str_word_count($content);

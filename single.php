@@ -2,18 +2,12 @@
 <!-- SINGLE POST -->
 
 
-<main class="post" role="main" id="single-post">	
-	
-	<?php 
-	
+<main class="post" role="main" id="single-post">		
+	<?php 	
 	while ( have_posts() ) {
         the_post();
-        get_template_part( 'post-template/post', get_post_format() );
-
-	
+        get_template_part( 'post-template/post', get_post_format() );	
 	}
-	
-	
 	
 	/*						
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

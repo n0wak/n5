@@ -1,5 +1,3 @@
-
-	
 <footer role="contentinfo" class="global">
     <a href="/" class="scroll-to-top"><span>Scroll to top</span></a>
     	<div id="site-info" role="contentinfo">
@@ -13,18 +11,11 @@
 	
 </footer> <!-- end footer -->
 
-<dialog><img src="" alt="Modal image" /></dialog>
-    
-                
-		<?php 
-			wp_footer(); // js scripts are inserted using this function 
-		?>
-
+<dialog><img src="" alt="Modal image" /></dialog>   
+<?php 
+	wp_footer(); // js scripts are inserted using this function 
+?>
 </body>
-
-            
-
-
 <script type="text/javascript">
   /*!
    * verge 1.9.1+201402130803
@@ -32,87 +23,25 @@
    * MIT License 2013 Ryan Van Etten
    */
   !function(a,b,c){"undefined"!=typeof module&&module.exports?module.exports=c():a[b]=c()}(this,"verge",function(){function a(){return{width:k(),height:l()}}function b(a,b){var c={};return b=+b||0,c.width=(c.right=a.right+b)-(c.left=a.left-b),c.height=(c.bottom=a.bottom+b)-(c.top=a.top-b),c}function c(a,c){return a=a&&!a.nodeType?a[0]:a,a&&1===a.nodeType?b(a.getBoundingClientRect(),c):!1}function d(b){b=null==b?a():1===b.nodeType?c(b):b;var d=b.height,e=b.width;return d="function"==typeof d?d.call(b):d,e="function"==typeof e?e.call(b):e,e/d}var e={},f="undefined"!=typeof window&&window,g="undefined"!=typeof document&&document,h=g&&g.documentElement,i=f.matchMedia||f.msMatchMedia,j=i?function(a){return!!i.call(f,a).matches}:function(){return!1},k=e.viewportW=function(){var a=h.clientWidth,b=f.innerWidth;return b>a?b:a},l=e.viewportH=function(){var a=h.clientHeight,b=f.innerHeight;return b>a?b:a};return e.mq=j,e.matchMedia=i?function(){return i.apply(f,arguments)}:function(){return{}},e.viewport=a,e.scrollX=function(){return f.pageXOffset||h.scrollLeft},e.scrollY=function(){return f.pageYOffset||h.scrollTop},e.rectangle=c,e.aspect=d,e.inX=function(a,b){var d=c(a,b);return!!d&&d.right>=0&&d.left<=k()},e.inY=function(a,b){var d=c(a,b);return!!d&&d.bottom>=0&&d.top<=l()},e.inViewport=function(a,b){var d=c(a,b);return!!d&&d.bottom>=0&&d.right>=0&&d.top<=l()&&d.left<=k()},e});
-  
-
+/* Mike Nowak */
 var justScroll=function(){EasingFunctions={linear:function(t){return t},easeInQuad:function(t){return t*t},easeOutQuad:function(t){return t*(2-t)},easeInOutQuad:function(t){return t<.5?2*t*t:-1+(4-2*t)*t},easeInCubic:function(t){return t*t*t},easeOutCubic:function(t){return--t*t*t+1},easeInOutCubic:function(t){return t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1},easeInQuart:function(t){return t*t*t*t},easeOutQuart:function(t){return 1- --t*t*t*t},easeInOutQuart:function(t){return t<.5?8*t*t*t*t:1-8*--t*t*t*t},easeInQuint:function(t){return t*t*t*t*t},easeOutQuint:function(t){return 1+--t*t*t*t*t},easeInOutQuint:function(t){return t<.5?16*t*t*t*t*t:1+16*--t*t*t*t*t}};var isTweening=false;var tweenPosition=0;var tweenDuration=60;var tweenEasing="easeInOutCubic";var tween=function(){var p=tweenPosition/tweenDuration;tweenPosition++;return EasingFunctions[tweenEasing](p)};var going=function(){var p=tween();window.scroll(0,tweenFrom+(tweenTo-tweenFrom)*p);if(p!=1){requestAnimationFrame(going)}else{isTweening=false}};var getScrollY=function(){var supportPageOffset=window.pageXOffset!==undefined;var isCSS1Compat=(document.compatMode||"")==="CSS1Compat";return supportPageOffset?window.pageYOffset:isCSS1Compat?document.documentElement.scrollTop:document.body.scrollTop};var to=function(scrollTo,time,easing){if(isTweening){return}if(typeof scrollTo=="number"){tweenTo=scrollTo}else if(typeof scrollTo=="string"){var el=document.getElementById(scrollTo);tweenTo=document.getElementById(scrollTo).offsetTop}else{tweenTo=0}if(typeof time=="number"){tweenDuration=Math.floor(time*60)}else{tweenDuration=60}if(typeof easing=="string"&&typeof EasingFunctions[easing]=="function"){tweenEasing=easing}else{tweenEasing="easeInOutCubic"}tweenPosition=0;isTweening=true;tweenFrom=getScrollY();if(typeof requestAnimationFrame=="undefined"){window.scroll(0,tweenTo)}else{going()}};return{to:to}}();
 	   
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-};
+// Debounce
+function debounce(n,t,u){var e;return function(){var a=this,i=arguments,o=function(){e=null,u||n.apply(a,i)},r=u&&!e;clearTimeout(e),e=setTimeout(o,t),r&&n.apply(a,i)}}
 
-  
 /*!
  * contentloaded.js
- *
  * Author: Diego Perini (diego.perini at gmail.com)
- * Summary: cross-browser wrapper for DOMContentLoaded
- * Updated: 20101020
  * License: MIT
  * Version: 1.2
- *
  * URL:
  * http://javascript.nwbox.com/ContentLoaded/
  * http://javascript.nwbox.com/ContentLoaded/MIT-LICENSE
- *
  */
+function contentLoaded(e,t){var a=!1,n=!0,o=e.document,c=o.documentElement,d=o.addEventListener,l=d?"addEventListener":"attachEvent",r=d?"removeEventListener":"detachEvent",y=d?"":"on",i=function(n){("readystatechange"!=n.type||"complete"==o.readyState)&&(("load"==n.type?e:o)[r](y+n.type,i,!1),!a&&(a=!0)&&t.call(e,n.type||n))},m=function(){try{c.doScroll("left")}catch(e){return void setTimeout(m,50)}i("poll")};if("complete"==o.readyState)t.call(e,"lazy");else{if(!d&&c.doScroll){try{n=!e.frameElement}catch(v){}n&&m()}o[l](y+"DOMContentLoaded",i,!1),o[l](y+"readystatechange",i,!1),e[l](y+"load",i,!1)}}
 
-// @win window reference
-// @fn function reference
-function contentLoaded(win, fn) {
-
-	var done = false, top = true,
-
-	doc = win.document,
-	root = doc.documentElement,
-	modern = doc.addEventListener,
-
-	add = modern ? 'addEventListener' : 'attachEvent',
-	rem = modern ? 'removeEventListener' : 'detachEvent',
-	pre = modern ? '' : 'on',
-
-	init = function(e) {
-		if (e.type == 'readystatechange' && doc.readyState != 'complete') return;
-		(e.type == 'load' ? win : doc)[rem](pre + e.type, init, false);
-		if (!done && (done = true)) fn.call(win, e.type || e);
-	},
-
-	poll = function() {
-		try { root.doScroll('left'); } catch(e) { setTimeout(poll, 50); return; }
-		init('poll');
-	};
-
-	if (doc.readyState == 'complete') fn.call(win, 'lazy');
-	else {
-		if (!modern && root.doScroll) {
-			try { top = !win.frameElement; } catch(e) { }
-			if (top) poll();
-		}
-		doc[add](pre + 'DOMContentLoaded', init, false);
-		doc[add](pre + 'readystatechange', init, false);
-		win[add](pre + 'load', init, false);
-	}
-
-}
-
- 
-    
+// weblog
 inbetween = {
-
     "sizeText" : function() {		     
         var elem = document.getElementById("top-header");
         if (elem) {
@@ -222,7 +151,6 @@ contentLoaded(window, function() {
     
 });
 
-
 var clientWidth = verge.viewportW();
 var clientHeight = verge.viewportH();
 // Just in case
@@ -236,13 +164,10 @@ window.onresize = debounce(function() {
     }
 }, 300);
     
-    	  
-</script>
-	  
-<script>
+
 WebFontConfig = {
-  google: {
-    families: ['Gentium+Basic:400,400italic,700', 'Comfortaa:700'] // 700
+google: {
+    families: ['Gentium+Basic:400<?php echoIfNotIndex(',400italic,700');?>', 'Comfortaa:700']
   },
   active : function() {	  
   	inbetween.sizeText();
@@ -262,6 +187,5 @@ WebFontConfig = {
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })();
-  
 </script>
 </html>

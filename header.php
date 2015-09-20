@@ -15,19 +15,21 @@ if ($_SERVER["HTTP_HOST"]== "mikenowak.ca") {
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">		
     <link rel="home" href="/" title="Home" />
     <link rel="alternate" type="application/rss+xml" title="the-inbetween.com feed" href="<?php bloginfo('rss2_url'); ?>" />
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css">	    
     <meta name="theme-color" content="#31a4cf">		
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="the-inbetween.com"/>
+<meta name="application-name" content="the-inbetween.com"/>
+<meta name="msapplication-TileColor" content="#31a4cf"/>
+<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/img/inbetween.png"/>
     <link rel="icon" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/assets/img/inbetween.png">				
-	<!-- wp_head -->
-    <?php wp_head(); ?>    
-	<!-- end wp_head -->        
+<?php //wp_head(); ?>    
 <!--[if lt IE 9]>
 <script type="javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/iehtml5.js"></script>
 <![endif]-->	
 </head>		
 <body <?php body_class(); ?> role="main">
     <header id="top-header" class="full-header <?php echo getHeaderClass(); ?>" role="banner">
-        <h1><a href="/">the-inbetween.com</a> is a <em>weblog</em>. It has been since 2000.<?php /*--> Placeholder text. Longer placeholder text <a href="#">with link</a>.*/?></h1>
+        <h1><a href="/">the-inbetween.com</a> is a <em>weblog</em>. It has been since 2000.<?php /*--> Placeholder text. Longer placeholder text <a href="#">with link</a>. */?></h1>
     </header>

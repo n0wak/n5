@@ -11,12 +11,8 @@ $isFull = is_excerpt_full($excerpt, $content);
 if (!$isFull) { 
     $content = $excerpt;
 }
-
-
-
-            
+        
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php /*post_class(); */ ?> role="article">
     <header>
         <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
@@ -30,8 +26,7 @@ if (!$isFull) {
             &gt; READ THE REST&hellip;
         </a>
     </p>
-    <?php } ?>
-    
+    <?php } ?>    
     <footer>
            <?php n5_post_time(); ?>           		      		  
     </footer>
