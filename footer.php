@@ -23,37 +23,7 @@
 </body>
 
             
-<script>
-WebFontConfig = {
-  google: {
-    families: ['Gentium+Basic:400,400italic', 'Comfortaa:700'] // 700
-  },
-  loading : function() {
-    //console.log ("wfc loading");
-  },
-  active : function() {	  
-      //console.log ("wfc active");
-  	inbetween.sizeText();
-  	
-  },
-  inactive: function() {
-      //console.log ("wfc inactive");
-  	inbetween.sizeText();
-  }
 
-};
-
-(function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-              '://ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-  
-</script>
 
 <script type="text/javascript">
   /*!
@@ -142,10 +112,8 @@ function contentLoaded(win, fn) {
  
     
 inbetween = {
-  
-    // 
-    "sizeText" : function() {		 
-    
+
+    "sizeText" : function() {		     
         var elem = document.getElementById("top-header");
         if (elem) {
             var h = parseInt(elem.offsetHeight, 10);                    
@@ -158,7 +126,7 @@ inbetween = {
             if (elemChild) {               
                 while(true) {              
                     elemChild.style.fontSize = s + "px";            
-                    var ns = elemChild.offsetHeight; // p.innerHeight();
+                    var ns = elemChild.offsetHeight;
                     if (ns > h) {
                         smax = s
                     } else if (ns < h) {
@@ -190,7 +158,8 @@ inbetween = {
     
     "onDialogClick" : function (e) {
         e.preventDefault();
-        this.removeAttribute("open");
+        this.close();
+        this.firstChild.setAttribute("src", "");
     },
 
     "initializeImageLinks" : function () {
@@ -217,61 +186,39 @@ inbetween = {
         e.stopPropagation();
     
         var firstDiag = document.getElementsByTagName("dialog")[0];
-        firstDiag.firstChild.setAttribute("src", this.getAttribute("href"));
-        firstDiag.show();
-  
+        if (firstDiag) {
+            var img = firstDiag.firstChild;
+            img.setAttribute("src", this.getAttribute("href"));
+            firstDiag.showModal();
+        }
         return false;
+    },
+    
+    "initializeScrollToTop" : function() {
+        var scrollLink = document.getElementsByClassName("scroll-to-top");
+        for (var i = 0; i < scrollLink.length; i++) {
+            scrollLink[i].addEventListener("click", function(e) {
+                e.preventDefault();
+                justScroll.to(0, 0.8);
+            });
+        }
     }
 };
 	  
-	  
-      
-     
-    
-    
-    
-    
-   
-      
-      
 
-    
       
 // Needs to be onload as we need the font loaded
 window.onload = function() {
-    console.log ("WINDOW ON LOAD"); 
-    //inbetween.sizeText();
-    
-    /*if (window.scrollY == 0 && document.body.classList.contains("single-post")) {
-        //alert ("SINGLE POST 0");        
-        console.log("scroll into view");
-        document.getElementById("single-post").scrollIntoView(false);
-    }*/
-    
-    //if (window.scrollY == 0 && document.body.classList.contains("single-post")) {
-      //  var p = (parseInt(document.getElementById("top-header").offsetHeight, 10));
-        //window.scrollTo(0, p);
-    //}
-    
-   // window.scrollTo(0, 0);
-    
     if (window.scrollY == 0 && document.body.classList.contains("single-post")) {
   	  justScroll.to((parseInt(document.getElementById("top-header").offsetHeight, 10) - 6) , 0.6 );
     }
 }
     
 contentLoaded(window, function() {
-    //window.addEventListener("DOMContentLoaded", function(e) {
-    console.log ("ON DOM LOAD", inbetween);
     inbetween.initializeDialogs();
     inbetween.initializeImageLinks();       
-    inbetween.sizeText();  
-    
-    
-    //window.scroll(0, document.getElementById("top-header").offsetHeight);
-    
-    //window.scrollTo(0, 0);
-    
+    inbetween.sizeText();    
+    inbetween.initializeScrollToTop();
     
 });
 
@@ -282,34 +229,39 @@ var clientHeight = verge.viewportH();
 window.onresize = debounce(function() {
     var w = verge.viewportW();
     var h = verge.viewportH();
-    if (w != clientWidth || Math.abs(h - clientHeight) > 25) { // Only if width changes. If height changes it's possible it's because of andoid ui hiding.
-        
-
-        console.log ("onresize " + Math.abs(h - clientHeight));
+    if (w != clientWidth || Math.abs(h - clientHeight) > 25) { 
         clientWidth = w;
         clientHeight = h;
         inbetween.sizeText();
     }
 }, 300);
     
-    
-        
-    
+    	  
+</script>
+	  
+<script>
+WebFontConfig = {
+  google: {
+    families: ['Gentium+Basic:400,400italic,700', 'Comfortaa:700'] // 700
+  },
+  active : function() {	  
+  	inbetween.sizeText();
+  	
+  },
+  inactive: function() {
+  	inbetween.sizeText();
+  }
+};
 
-var scrollLink = document.getElementsByClassName("scroll-to-top");
-    
-for (var i = 0; i < scrollLink.length; i++) {
-    scrollLink[i].addEventListener("click", function(e) {
-        e.preventDefault();
-        justScroll.to(0, 0.8);
-    });
-}
-    
-window.onscroll = function() {
-      //console.log (window.scrollY, window.scrollY > verge.viewportH()*0.8);      
-}
-      
-	 
-		  
-	  </script>
+(function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+              '://ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  
+</script>
 </html>

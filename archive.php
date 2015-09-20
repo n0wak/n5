@@ -27,7 +27,7 @@
 				    </h1>
 				<?php } elseif (is_year()) { ?>
 				    <h1 class="archive_title">
-				    	<a href="/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a> <span><?php _e("yearly archives for:"); ?>:</span> <?php the_time('Y'); ?>
+				    	<a href="/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a> <span><?php _e("yearly archives for"); ?>:</span> <?php the_time('Y'); ?>
 				    </h1>
 				<?php } ?>
 			
@@ -41,6 +41,14 @@
 						<?php endwhile; ?>	
 						
 
+
+                        <nav class="post-navigation">
+                                <div class="navigation-newer"><?php next_posts_link('Older Page.', 0) ?></div>
+
+                                <div class="navigation-older"><?php previous_posts_link('Newer Page.', 0) ?></div>
+                
+                        </nav>
+                        
 						<nav class="wp-prev-next">						
 							<div class="wp-newer-page"><?php next_posts_link('Older &raquo;', 0) ?></div>									
 							<div class="wp-older-page"><?php previous_posts_link('&laquo; Newer', 0) ?></div>								
