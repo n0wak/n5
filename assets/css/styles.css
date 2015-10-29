@@ -169,8 +169,7 @@ header.full-header h1 {
 header.full-header a {
     color : #FFF;
     text-decoration : none;
-    background : none;
-        
+    background : none;        
     background-image: -moz-linear-gradient(to bottom, #31a4cf 0%, #FFF 100%);
     background-image: linear-gradient(to bottom, #31a4cf 0%, #FFF 100%);
     background-repeat: no-repeat;
@@ -179,7 +178,7 @@ header.full-header a {
     border : none;
 }
 header.full-header a:hover {
-  color : #393939;  
+  color : #338;  
   text-decoration : none;
   background-size: 0 2px;
 }
@@ -231,6 +230,9 @@ main.index article p.excerpt-full:after {
 
 .archive_title {
     text-align : center;
+    margin-bottom : 3rem;
+    font-size : 1.5rem;
+    font-weight : normal;
 }
 
 

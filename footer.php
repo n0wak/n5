@@ -1,14 +1,13 @@
 <footer role="contentinfo" class="global">
-    <a href="/" class="scroll-to-top"><span>Scroll to top</span></a>
+    <a href="/" class="scroll-to-top"><span>To top</span></a>
     	<div id="site-info" role="contentinfo">
-        <p class="attribution"><a href="/" title="the-inbetween.com by Mike Nowak">the-inbetween.com</a> (2000&mdash;) is the weblog of <a href="http://mikenowak.ca" title="Mike Nowak">Mike Nowak</a>. It is powered by <a href="http://wordpress.org/" title="WordPress">WordPress</a> and all <em>original</em> writing, code, design, and imagery is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/" title="CC Attribution-Share Alike 2.5 License">Creative Commons Attribution-Share Alike 2.5 Canada License</a> except where otherwise noted.</p>
+        <p class="attribution"><a href="/" title="the-inbetween.com by Mike Nowak">the-inbetween</a> (2000&mdash;) is the weblog of <a href="http://mikenowak.ca" title="Mike Nowak">Mike Nowak</a>. It is powered by <a href="http://wordpress.org/" title="WordPress">WordPress</a> and all original content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ca/" title="CC Attribution-Share Alike 2.5 License">Creative Commons Attribution-Share Alike 2.5 Canada License</a> except where otherwise noted.</p>
     </div>
   
     <div id="site-aside">
         <p>You can also find me on <a href="http://twitter.com/n0wak" target="_blank">Twitter</a>, my tumblr <a href="http://nullscapes.tumblr.com/" target="_blank">nullscapes</a>, <a href="http://www.flickr.com/photos/n0wak/">flickr</a>, &amp; <a href="http://500px.com/n0wak" target="_blank">500px</a>, and mostly everywhere on the web.</p>
 	
-    </div> <!-- end #inner-footer -->
-	
+    </div>	
 </footer> <!-- end footer -->
 
 <dialog><img src="" alt="Modal image" /></dialog>   
@@ -17,11 +16,11 @@
 ?>
 </body>
 <script type="text/javascript">
-  /*!
-   * verge 1.9.1+201402130803
-   * https://github.com/ryanve/verge
-   * MIT License 2013 Ryan Van Etten
-   */
+/*!
+* verge 1.9.1+201402130803
+* https://github.com/ryanve/verge
+* MIT License 2013 Ryan Van Etten
+*/
   !function(a,b,c){"undefined"!=typeof module&&module.exports?module.exports=c():a[b]=c()}(this,"verge",function(){function a(){return{width:k(),height:l()}}function b(a,b){var c={};return b=+b||0,c.width=(c.right=a.right+b)-(c.left=a.left-b),c.height=(c.bottom=a.bottom+b)-(c.top=a.top-b),c}function c(a,c){return a=a&&!a.nodeType?a[0]:a,a&&1===a.nodeType?b(a.getBoundingClientRect(),c):!1}function d(b){b=null==b?a():1===b.nodeType?c(b):b;var d=b.height,e=b.width;return d="function"==typeof d?d.call(b):d,e="function"==typeof e?e.call(b):e,e/d}var e={},f="undefined"!=typeof window&&window,g="undefined"!=typeof document&&document,h=g&&g.documentElement,i=f.matchMedia||f.msMatchMedia,j=i?function(a){return!!i.call(f,a).matches}:function(){return!1},k=e.viewportW=function(){var a=h.clientWidth,b=f.innerWidth;return b>a?b:a},l=e.viewportH=function(){var a=h.clientHeight,b=f.innerHeight;return b>a?b:a};return e.mq=j,e.matchMedia=i?function(){return i.apply(f,arguments)}:function(){return{}},e.viewport=a,e.scrollX=function(){return f.pageXOffset||h.scrollLeft},e.scrollY=function(){return f.pageYOffset||h.scrollTop},e.rectangle=c,e.aspect=d,e.inX=function(a,b){var d=c(a,b);return!!d&&d.right>=0&&d.left<=k()},e.inY=function(a,b){var d=c(a,b);return!!d&&d.bottom>=0&&d.top<=l()},e.inViewport=function(a,b){var d=c(a,b);return!!d&&d.bottom>=0&&d.right>=0&&d.top<=l()&&d.left<=k()},e});
 /* Mike Nowak */
 var justScroll=function(){EasingFunctions={linear:function(t){return t},easeInQuad:function(t){return t*t},easeOutQuad:function(t){return t*(2-t)},easeInOutQuad:function(t){return t<.5?2*t*t:-1+(4-2*t)*t},easeInCubic:function(t){return t*t*t},easeOutCubic:function(t){return--t*t*t+1},easeInOutCubic:function(t){return t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1},easeInQuart:function(t){return t*t*t*t},easeOutQuart:function(t){return 1- --t*t*t*t},easeInOutQuart:function(t){return t<.5?8*t*t*t*t:1-8*--t*t*t*t},easeInQuint:function(t){return t*t*t*t*t},easeOutQuint:function(t){return 1+--t*t*t*t*t},easeInOutQuint:function(t){return t<.5?16*t*t*t*t*t:1+16*--t*t*t*t*t}};var isTweening=false;var tweenPosition=0;var tweenDuration=60;var tweenEasing="easeInOutCubic";var tween=function(){var p=tweenPosition/tweenDuration;tweenPosition++;return EasingFunctions[tweenEasing](p)};var going=function(){var p=tween();window.scroll(0,tweenFrom+(tweenTo-tweenFrom)*p);if(p!=1){requestAnimationFrame(going)}else{isTweening=false}};var getScrollY=function(){var supportPageOffset=window.pageXOffset!==undefined;var isCSS1Compat=(document.compatMode||"")==="CSS1Compat";return supportPageOffset?window.pageYOffset:isCSS1Compat?document.documentElement.scrollTop:document.body.scrollTop};var to=function(scrollTo,time,easing){if(isTweening){return}if(typeof scrollTo=="number"){tweenTo=scrollTo}else if(typeof scrollTo=="string"){var el=document.getElementById(scrollTo);tweenTo=document.getElementById(scrollTo).offsetTop}else{tweenTo=0}if(typeof time=="number"){tweenDuration=Math.floor(time*60)}else{tweenDuration=60}if(typeof easing=="string"&&typeof EasingFunctions[easing]=="function"){tweenEasing=easing}else{tweenEasing="easeInOutCubic"}tweenPosition=0;isTweening=true;tweenFrom=getScrollY();if(typeof requestAnimationFrame=="undefined"){window.scroll(0,tweenTo)}else{going()}};return{to:to}}();
@@ -187,5 +186,16 @@ google: {
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })();
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1859107-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
 </html>
