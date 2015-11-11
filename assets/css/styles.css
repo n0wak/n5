@@ -14,22 +14,21 @@ html, body {
     font-weight : 400;
 	height : 100%;
     font-size : 1.2em;
-    line-height : 1.5;      
+    line-height : 1.5;/*      
     transition : opacity 0.8s;
     transition-timing-function:  : ease-in-out;
     animation: fadeinIntro 0.8s;    
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;*/
 }
 
 @keyframes fadeinIntro {
-    from { opacity: 0; }
+    from { opacity: 0.7; }
     to   { opacity: 1; }
 }
 
 
 html.wf-loading, .wf-loading body {
     color : #555;
-    opacity : 0;
     animation: none;
 }
 html.wf-active, .wf-active body {
@@ -40,10 +39,11 @@ html.wf-active, .wf-active body {
     font-family: 'Gentium Basic', Georgia, serif;
 }
 html.wf-active header.full-header h1 {
-    font-family: 'Comfortaa', Helvetica, Arial, sans-serif; 
+    font-family: 'Comfortaa', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
     font-weight : 700;
+    opacity : 1;
 }
-
+html.wf-inactive header.full-header h1 { opacity : 1; }
 
 a {
     text-decoration : underline;
@@ -82,20 +82,28 @@ sup {
 }
 
 
-::-moz-selection{
+::-moz-selection {
 	background: #31a4cf;
 	color: #fff;
 }
+
 ::selection {
-	background:#31a4cf;
+	background: #31a4cf;
 	color: #fff;
+	
 }
 
-a::selection, a::-moz-selection {  	
-	color: #000;
+a::selection {  	
+	color: #000;	
+	text-shadow : none !important;
+	background-image : none !important;
 }
 
-
+a::-moz-selection {
+	color: #000;	
+	text-shadow : none !important;
+	background-image : none !important;
+}
 
 /*
 Quotations
@@ -158,13 +166,15 @@ header.full-header {
 
 
 header.full-header h1 {
-    font-family: Helvetica, Arial, sans-serif;  /* font replaced on load */
-    font-weight : 400;    
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* font replaced on load */
+    font-weight : 100;    
     font-size : 2rem; /* Default big */    
     padding : 1.75rem 8rem 1.75rem 8rem;
     margin : 0;
-	text-shadow: 0px 5px 5px rgba(0,0,0,0.35);    
-}
+	text-shadow: 0px 5px 5px rgba(0,0,0,0.35);   
+	opacity : 0.1;
+    transition : opacity 0.8s;
+    transition-timing-function:  : ease-in-out;}
 
 header.full-header a {
     color : #FFF;
@@ -303,6 +313,7 @@ a, section a, footer a {
 section a, article header a {
     text-shadow: rgb(255, 255, 255) 0.5px 0.5px, rgb(255, 255, 255) -0.5px 0.5px, rgb(255, 255, 255) 1px 1px, rgb(255, 255, 255) -1px 1px, rgb(255, 255, 255) 1.5px 1.5px, rgb(255, 255, 255) -1.5px 1.5px, rgb(255, 255, 255) 2px 2px, rgb(255, 255, 255) -2px 2px, rgb(255, 255, 255) 2.5px 2.5px, rgb(255, 255, 255) -2.5px 2.5px, rgb(255, 255, 255) 3px 3px, rgb(255, 255, 255) -3px 3px, rgb(255, 255, 255) 0px 0.5px, rgb(255, 255, 255) 0px 1px, rgb(255, 255, 255) 0px 1.5px, rgb(255, 255, 255) 0px 2px, rgb(255, 255, 255) 0px 2.5px, rgb(255, 255, 255) 0px 3px;
 }
+
 
 a:hover, section a:hover, footer a:hover {
     color : #DF3054;

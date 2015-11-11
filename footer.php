@@ -166,7 +166,7 @@ window.onresize = debounce(function() {
 
 WebFontConfig = {
 google: {
-    families: ['Gentium+Basic:400<?php echoIfNotIndex(',400italic,700');?>', 'Comfortaa:700']
+    families: ['Gentium+Basic:400<?php echoIfSingle(',400italic,700');?>', 'Comfortaa:700']
   },
   active : function() {	  
   	inbetween.sizeText();

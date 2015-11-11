@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <main class="index" role="main">
-		
 				<?php if (is_category()) { ?>
 					<h2 class="archive_title">
 						<a href="/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a> <span><?php _e("posts categorized as"); ?></span> <strong><?php single_cat_title(); ?></strong>
@@ -25,16 +24,16 @@
 				<?php } elseif (is_year()) { ?>
 				    <h2 class="archive_title">
 				    	<a href="/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a> <span><?php _e("yearly archives for"); ?>:</span> <?php the_time('Y'); ?>
-				    </h2>
-				<?php } ?>
-			
-						<?php if (have_posts()) : while (have_posts()) : the_post();
-						
-						
-                            get_template_part( 'excerpt-template/post', get_post_format() );
-		?>
-						<?php endwhile; ?>	
-						
+				    </h2><?php } 
+				
+				
+if (have_posts()) {
+	while ( have_posts() ) { 						
+       the_post();												
+       get_template_part( 'excerpt-template/post', get_post_format() );
+}
+
+?>		
 									
         <nav class="navigation pagination" role="navigation">																
 			<div class="navigation-newer"><?php previous_posts_link('&laquo; Newer Page (' . (get_query_var( 'paged' ) ? get_query_var( 'paged' )-1 : 1) .')', 0) ?>&nbsp;</div>			
@@ -43,12 +42,12 @@
 			 </div>
 		    <div class="navigation-older"><?php next_posts_link('Older Page ('. (get_query_var( 'paged' ) ? get_query_var( 'paged' )+1 : 1) . ') &raquo;', 0) ?>&nbsp;</div>								
         </nav>     
-						
-						<?php        
+<?php        
+
     } else {
         get_template_part( 'post-template/post', 'none' );		
     }
-} 
+ 
 ?>
 		
 </main>

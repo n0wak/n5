@@ -73,6 +73,11 @@ function echoIfNotIndex($string) {
         echo $string;
     }
 }
+function echoIfSingle($string) {
+    if (is_single()) {
+        echo $string;
+    }
+}
 
 function is_excerpt_full($excerpt, $content) {
 	return str_word_count($excerpt) >= str_word_count($content);
