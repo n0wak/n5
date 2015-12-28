@@ -83,6 +83,14 @@ function is_excerpt_full($excerpt, $content) {
 	return str_word_count($excerpt) >= str_word_count($content);
 }
 
+function echoIfItalic($output, $content) {
+    if (strpos("<em", $content) === false) {
+        //return "";
+    } else {
+        echo $content;
+    }
+}
+
 
 function code_shortcode($atts, $content = '')
 {

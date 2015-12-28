@@ -13,8 +13,8 @@ html, body {
     font-family: Georgia, serif;
     font-weight : 200;
 	height : 100%;
-    font-size : 1.3em;
-    line-height : 1.5;/*      
+    font-size : 1.25em;
+    line-height : 1.55;/*      
     transition : opacity 0.8s;
     transition-timing-function:  : ease-in-out;
     animation: fadeinIntro 0.8s;    
@@ -32,9 +32,9 @@ html.wf-loading, .wf-loading body {
     animation: none;
 }
 html.wf-active, .wf-active body {
-    font-size : 1.2em;
-    line-height : 1.4;
-    color :  #444;
+    font-size : 1.3em;
+    line-height : 1.45;
+    color :  #3D3D3D;
     opacity : 1;
     font-weight : 400;
     font-family: 'Gentium Basic', Georgia, serif;
@@ -265,7 +265,7 @@ h2 {
 }
 .single-post h2 {
     margin-top : 1.75rem;
-    font-size : 2.25em;
+    font-size : 2.25rem;
 }
 h3 {
     font-size : 1.75rem;
@@ -288,7 +288,7 @@ article p, article iframe, article div, article figure, article ul, article ol {
 }
 
 article ul, article ol {
-    margin-left : 2em;
+    margin-left : 2rem;
 }
 article li {
      margin : 0.875rem auto 0 auto;
@@ -297,12 +297,11 @@ article li {
 a, section a, footer a {
     transition: color 0.35s ease-in-out, background-size 0.5s ease-in-out;    
     -webkit-transition: color 0.35s ease-in-out, background-size 0.5s ease-in-out;
-    -moz-transition: color 0.35s ease-in-out, background-size 0.5s ease-in-out;
-        
+    -moz-transition: color 0.35s ease-in-out, background-size 0.5s ease-in-out;        
     text-decoration: none;
-    background-image: -moz-linear-gradient(to bottom, #FFF 25%, #DF3054 100%);
-    background-image: linear-gradient(to bottom, #FFF 25%, #DF3054 100%);
     
+    background-image: -moz-linear-gradient(to bottom, #FFF 25%, #DF3054 100%);
+    background-image: linear-gradient(to bottom, #FFF 25%, #DF3054 100%);    
     background-repeat: no-repeat;
     background-size: 0% 2px;
     background-position: center 1em;
@@ -310,28 +309,27 @@ a, section a, footer a {
     position : relative;
 }
 
-section a, article header a {
-    text-shadow: rgb(255, 255, 255) 0.5px 0.5px, rgb(255, 255, 255) -0.5px 0.5px, rgb(255, 255, 255) 1px 1px, rgb(255, 255, 255) -1px 1px, rgb(255, 255, 255) 1.5px 1.5px, rgb(255, 255, 255) -1.5px 1.5px, rgb(255, 255, 255) 2px 2px, rgb(255, 255, 255) -2px 2px, rgb(255, 255, 255) 2.5px 2.5px, rgb(255, 255, 255) -2.5px 2.5px, rgb(255, 255, 255) 3px 3px, rgb(255, 255, 255) -3px 3px, rgb(255, 255, 255) 0px 0.5px, rgb(255, 255, 255) 0px 1px, rgb(255, 255, 255) 0px 1.5px, rgb(255, 255, 255) 0px 2px, rgb(255, 255, 255) 0px 2.5px, rgb(255, 255, 255) 0px 3px;
-}
 
+.post-content a, article header a {
+    text-shadow: rgb(255, 255, 255) 0.5px 0.5px, rgb(255, 255, 255) -0.5px 0.5px, rgb(255, 255, 255) 1px 1px, rgb(255, 255, 255) -1px 1px, rgb(255, 255, 255) 1.5px 1.5px, rgb(255, 255, 255) -1.5px 1.5px, rgb(255, 255, 255) 2px 2px, rgb(255, 255, 255) -2px 2px, rgb(255, 255, 255) 2.5px 2.5px, rgb(255, 255, 255) -2.5px 2.5px, rgb(255, 255, 255) 3px 3px, rgb(255, 255, 255) -3px 3px;
+}
+/*, rgb(255, 255, 255) 0px 0.5px, rgb(255, 255, 255) 0px 1px, rgb(255, 255, 255) 0px 1.5px, rgb(255, 255, 255) 0px 2px, rgb(255, 255, 255) 0px 2.5px, rgb(255, 255, 255) 0px 3px*/
 
 a:hover, section a:hover, footer a:hover {
     color : #DF3054;
     border : none;
     background-size: 100% 2px;
-    background-image: -moz-linear-gradient(to bottom, #FFF 0%, #DF3054 100%, #FFF);
-    background-image: linear-gradient(to bottom, #FFF 0%, #DF3054 100%, #FFF);/**/
-}
-
-article p sup a:hover {
-    background : none;
-    color : #F9548B;
+    background-image: -moz-linear-gradient(to bottom, #FFF 25%, #DF3054 100%, #FFF);
+    background-image: linear-gradient(to bottom, #FFF 25%, #DF3054 100%, #FFF);/**/
 }
 
 article sup a {
     border : none;
 }
-
+article p sup a:hover {
+    background : none;
+    color : #F9548B;
+}
 
 /*
   Post figure
@@ -647,11 +645,18 @@ code {
 Responsive
 
 */
+
 @media (min-width: 901px) {
+    html.wf-active, .wf-active body {
+        font-size : 1.3em;
+    }
+}
+@media (min-width: 1200px) {
     html.wf-active, .wf-active body {
         font-size : 1.35em;
     }
 }
+
 @media (min-width : 701px) {
     footer.global {        
       -webkit-columns : 2;
@@ -672,8 +677,21 @@ Responsive
         margin-bottom : 1em;
     }
     main.post, main.index, header.full-header h1 {
+        padding-left : 4rem;
+        padding-right : 4rem;
+    }
+    html.wf-active, .wf-active body {
+        font-size : 1.2em;
+    }
+}
+
+@media (max-width : 500px) {
+    main.post, main.index, header.full-header h1 {
         padding-left : 3rem;
         padding-right : 3rem;
+    }
+    html.wf-active, .wf-active body {
+        font-size : 1.15em;
     }
 }
 
@@ -686,8 +704,6 @@ Responsive
         padding-right : 5rem;
     }
 }
-
-
 
 @media (max-width: 700px) and (min-width : 376px)  {
     code {
