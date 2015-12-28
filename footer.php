@@ -108,6 +108,16 @@ inbetween = {
             }
         }
     },
+    "initializeImageLoad" : function () {
+        var elems = document.getElementsByTagName("img");
+        var l = elems.length;
+        for (var i = 0; i < l; i++) {
+            var href = (elems[i].getAttribute("data-src"));
+            if (href) {
+                elems[i].setAttribute("src", elems[i].getAttribute("data-src"));            
+            }
+        }
+    },
 
     "onImageLink" : function (e) {      
         e.preventDefault();
@@ -147,6 +157,7 @@ contentLoaded(window, function() {
     inbetween.initializeImageLinks();       
     inbetween.sizeText();    
     inbetween.initializeScrollToTop();
+    inbetween.initializeImageLoad();
     
 });
 

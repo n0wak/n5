@@ -30,7 +30,14 @@
 if (have_posts()) {
 	while ( have_posts() ) { 						
        the_post();												
-       get_template_part( 'excerpt-template/post', get_post_format() );
+        $format = get_post_format( get_the_ID());
+
+        if ($format == "") {
+            get_template_part( 'excerpt-template/post' , get_post_format() );
+        } else {
+            get_template_part( 'excerpt-template/'.$format , get_post_format() );
+        }
+        
 }
 
 ?>		

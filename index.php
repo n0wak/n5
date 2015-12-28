@@ -6,8 +6,15 @@ get_header();
 if ( have_posts() ) {
     if ( is_home() ) { /*  && ! is_front_page()  */		
         while ( have_posts() ) { 
-            the_post();	
-            get_template_part( 'excerpt-template/post', get_post_format() );
+            the_post();	            
+            $format = get_post_format( get_the_ID());
+
+            if ($format == "") {
+                get_template_part( 'excerpt-template/post' , get_post_format() );
+            } else {
+                get_template_part( 'excerpt-template/'.$format , get_post_format() );
+            }
+            
 		};
 		?>				
 		<nav class="navigation pagination" role="navigation">																
