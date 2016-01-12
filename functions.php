@@ -1,5 +1,6 @@
 <?php
 
+show_admin_bar( false );
 
 function custom_excerpt_length( $length ) {
 	return 80;

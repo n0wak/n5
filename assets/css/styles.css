@@ -1,5 +1,4 @@
 main,article,aside,details,figcaption,figure,dialog,footer,header,hgroup,menu,nav,section{display:block}
-
 html {
   box-sizing: border-box;
 }
@@ -13,7 +12,7 @@ html, body {
     font-family: Georgia, serif;
     font-weight : 200;
 	height : 100%;
-    font-size : 1.25em;
+    font-size : 1.2em;
     line-height : 1.55;/*      
     transition : opacity 0.8s;
     transition-timing-function:  : ease-in-out;
@@ -32,7 +31,7 @@ html.wf-loading, .wf-loading body {
     animation: none;
 }
 html.wf-active, .wf-active body {
-    font-size : 1.3em;
+    font-size : 1.25em;
     line-height : 1.45;
     color :  #3D3D3D;
     opacity : 1;
@@ -64,8 +63,8 @@ a img {
     border: 1px solid #FFF;
 }
 a:hover img {
-	filter: contrast(115%) grayscale(35%); 
-	-webkit-filter: contrast(115%) grayscale(35%); 
+	filter: contrast(110%) grayscale(30%); 
+	-webkit-filter: contrast(110%) grayscale(30%); 
 	border-color : #31a4cf;
 }
 
@@ -255,6 +254,10 @@ article {
 	margin : 1.75rem 0 1.75rem 0;	
     text-rendering : optimizeLegibility;
 }  
+/* 
+ - 2rem for image posts
+*/
+ 
 h2, h3, h4, h5 {
     margin : 1.75rem auto 1.5rem auto;
     padding : 0;
@@ -654,12 +657,12 @@ Responsive
 
 @media (min-width: 901px) {
     html.wf-active, .wf-active body {
-        font-size : 1.3em;
+        font-size : 1.25em;
     }
 }
 @media (min-width: 1200px) {
     html.wf-active, .wf-active body {
-        font-size : 1.35em;
+        font-size : 1.3em;
     }
 }
 
@@ -687,7 +690,7 @@ Responsive
         padding-right : 4rem;
     }
     html.wf-active, .wf-active body {
-        font-size : 1.2em;
+        font-size : 1.15em;
     }
 }
 
@@ -697,13 +700,13 @@ Responsive
         padding-right : 3rem;
     }
     html.wf-active, .wf-active body {
-        font-size : 1.15em;
+        font-size : 1.1em;
     }
 }
 
 @media (max-width: 900px) and (min-width : 701px) {
     html.wf-active, .wf-active body {
-        font-size : 1.25em;
+        font-size : 1.15em;
     }
     main.post, main.index,header.full-header h1 {
         padding-left : 5rem;

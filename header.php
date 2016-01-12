@@ -1,10 +1,4 @@
-<?php
-if ($_SERVER["HTTP_HOST"]== "mikenowak.ca") {
-  Header ("Location: root/");
-  die();
-  // 69.36.184.15
-}
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr" lang="en-CA">
 <head>
 <meta charset="utf-8">
